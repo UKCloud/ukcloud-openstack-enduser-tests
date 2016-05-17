@@ -43,7 +43,7 @@ Install tempest
 pip install tempest
 ```
 
-# Configurationo
+# Configuration
 
 Tempest requires two files to test. This guide only details a basic setup testing non-admin functionality. To review the configuration in more detail read the sample tempest.conf available in http://docs.openstack.org/developer/tempest/sampleconf.html#tempest-sampleconf
 
@@ -97,7 +97,7 @@ image_ref_alt = <image ref e.g. 602d57d9-ff8a-4ccc-9249-11dcea815cc2>
 
 This information can be obtained by running the openstack tools
 
-```{r, engine='bash', Install}
+```{r, engine='', Install}
 
 ➜  code openstack image list
 

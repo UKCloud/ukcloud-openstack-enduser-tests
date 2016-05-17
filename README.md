@@ -97,7 +97,7 @@ image_ref_alt = <image ref e.g. 602d57d9-ff8a-4ccc-9249-11dcea815cc2>
 
 This information can be obtained by running the openstack tools
 
-```{r, engine='', Install}
+```
 
 ➜  code openstack image list
 

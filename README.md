@@ -240,7 +240,11 @@ The accounts file must be populated with a minimum of one account. If additional
 Because most users only have a access to a single project for testing the command below only requires a single user in the accounts file by setting the number of workers to one with concurrency flag.
 
 ## API Tests
+```
 ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(api))' --pretty --color --concurrency 1
+```
 
 ## Scenario tests
+```
 ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(scenario))' --pretty --color --concurrency 1
+```

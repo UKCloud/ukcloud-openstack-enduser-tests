@@ -109,7 +109,7 @@ This information can be obtained by running the OpenStack tools
 
 ```
 
-➜  code OpenStack image list
+➜  code openstack image list
 
 +--------------------------------------+-----------------------------------------------+--------+
 | ID                                   | Name                                          | Status |
@@ -125,7 +125,7 @@ flavor_ref_alt = <image ref e.g. 3>
 ```
 
 ```
-➜  code OpenStack flavor list
+➜  code openstack flavor list
 
 +----+-----------+-------+------+-----------+-------+-----------+
 | ID | Name      |   RAM | Disk | Ephemeral | VCPUs | Is Public |
@@ -167,7 +167,7 @@ floating_network_name = <network name>
 This can be obtained by running the following OpenStack command
 
 ```
-➜  code OpenStack ip floating pool list
+➜  code openstack ip floating pool list
 +----------+
 | Name     |
 +----------+
@@ -182,7 +182,7 @@ fixed_network_name = <network name>
 ```
 
 ```
-➜  code OpenStack network list
+➜  code openstack network list
 
 +--------------------------------------+----------+--------------------------------------+
 | ID                                   | Name     | Subnets                              |

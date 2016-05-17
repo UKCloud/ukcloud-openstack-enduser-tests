@@ -45,7 +45,17 @@ pip install tempest
 
 # Configuration
 
-Tempest requires two files to test. This guide only details a basic setup testing non-admin functionality. To review the configuration in more detail read the sample tempest.conf available in http://docs.openstack.org/developer/tempest/sampleconf.html#tempest-sampleconf
+## Config data
+
+This repository can be used to build a basic a configuration. change up a directory and checkout this repostitory to complete the configuration.
+
+```
+cd ..
+git clone git@github.com:skyscape-cloud-services/skyscape-openstack-enduser-tests.git
+cd skyscape-openstack-enduser-tests
+```
+
+Tempest requires two files to test. This guide only details a basic setup testing non-admin functionality. To review the configuration in more detail read the sample tempest.conf available in http://docs.openstack.org/developer/tempest/sampleconf.html#tempest-sampleconf. A basic configuration files with some defaults and placeholders can be found in etc/tempest.conf.
 
 Note: The configuration is configured to use pre-defined accounts rather than dynamic account generation. More information can be found here: http://docs.openstack.org/developer/tempest/configuration.html (Credential Provider Mechanisms)
 
@@ -215,6 +225,22 @@ connect_timeout = 60
 ssh_timeout = 30
 ```
 
+## Accounts file
+
+The accounts file must be populated with a minimum of one account. If additional accounts are provided they must be associated with seperate projects. There is an example accounts file in etc/accounts.yaml.
+ 
+```
+- username: <username>
+  tenant_name: <Project Name>
+  password: <password>
+```
+
 # Running
 
+Because most users only have a access to a single project for testing the command below only requires a single user in the accounts file by setting the number of workers to one with concurrency flag.
 
+## API Tests
+ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(api))' --pretty --color --concurrency 1
+
+## Scenario tests
+ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(scenario))' --pretty --color --concurrency 1

@@ -1,6 +1,6 @@
-# Skyscape Openstack End-user tests
+# Skyscape OpenStack End-user tests
 
-Tempest is an Openstack project dedicated to testing. It provides coverage in the following forms:
+Tempest is an OpenStack project dedicated to testing. It provides coverage in the following forms:
   * API - tests that the API functions as expected, both during success and failure
   * Scenario - Allows complex user based scenarios to be setup to allow full workflows to be tested
   * Stress - Allows for complex stress testing workloads to be executed
@@ -37,7 +37,7 @@ source the new python virtual environment
 source .venv/bin/activate
 ```
 
-Install tempest
+install tempest
 
 ```
 pip install tempest
@@ -62,7 +62,7 @@ Note: The configuration is configured to use pre-defined accounts rather than dy
 Edit the tempest config etc/tempest.conf configuring the following values
 
 ### URL endpoints
-This is the authentication endpoints for botht the v2.0 and v3 API's for the openstack platform e.g. 
+This is the authentication endpoints for both the v2.0 and v3 API's for the OpenStack platform e.g. 
 
 ```
 uri = https://services.openstack.skyscapecloud.com:5000/v2.0
@@ -74,10 +74,10 @@ uri_v3 = https://services.openstack.skyscapecloud.com:5000/v3
 
 ### Test accounts
 
-This needs to point to the relative path of the accounts file listing the credentials to perform operations in the Openstack cloud. This can usally be left as the value below.
+This needs to point to the relative path of the accounts file listing the credentials to perform operations in the OpenStack cloud. This can usually be left as the value below.
 
 ```
-test_accounts_file = etc/tempest/accounts.yaml
+test_accounts_file = etc/accounts.yaml
 ```
 
 ### Credential methods
@@ -98,14 +98,14 @@ api_v3 = true
 
 ### Compute Configuration 
 
-You must supply a number of images that can be used to perfrom the scenario tests. The following values must be provided
+You must supply a number of images that can be used to perform the scenario tests. The following values must be provided
 
 ```
 image_ref = <image ref e.g. 602d57d9-ff8a-4ccc-9249-11dcea815cc2>
 image_ref_alt = <image ref e.g. 602d57d9-ff8a-4ccc-9249-11dcea815cc2>
 ```
 
-This information can be obtained by running the openstack tools
+This information can be obtained by running the OpenStack tools
 
 ```
 
@@ -150,7 +150,7 @@ ssh_user_regex = [["^.*[Cc]irros.*$", "cirros"]]
 The image details must be added so the scenario tests can correctly upload, deploy and validate the images.
 
 ```
-img_dir = /Users/cllewellyn/Downloads/images
+img_dir = <imagesDir>
 img_file = cirros-0.3.1-i386-disk.vmdk
 img_disk_format = vmdk
 img_container_format = bare
@@ -164,7 +164,7 @@ During the tests floating IP addresses are assigned so that machines can be conn
 floating_network_name = <network name>
 ```
 
-This can be obtained by running the following openstack command
+This can be obtained by running the following OpenStack command
 
 ```
 ➜  code openstack ip floating pool list

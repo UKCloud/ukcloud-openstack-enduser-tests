@@ -248,3 +248,11 @@ ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(api))' --pretty --color --con
 ```
 ostestr --regex '(?!.*\[.*\bslow\b.*\])(^tempest\.(scenario))' --pretty --color --concurrency 1
 ```
+
+### Individual tests
+
+Individual tests can be run against scenarios. This can useful to check a very specific workflow.
+
+```
+testr run tempest.scenario.test_minimum_basic.TestMinimumBasicScenario --pretty --color --concurrency=1
+```

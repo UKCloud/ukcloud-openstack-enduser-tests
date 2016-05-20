@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/icann-dns/puppet-nsd.svg?branch=master)](https://travis-ci.org/skyscape-cloud-services/skyscape-openstack-enduser-tests)
+
 # Skyscape OpenStack End-user tests
 
 Tempest is an OpenStack project dedicated to testing. It provides coverage in the following forms:

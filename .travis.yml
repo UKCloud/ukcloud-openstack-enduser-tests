@@ -1,0 +1,27 @@
+language: python
+python:
+- '2.7'
+install:
+- sudo apt-get install -y libssl-dev libffi-dev git python-pip python-virtualenv
+- git clone http://git.openstack.org/openstack/tempest
+- sudo pip install tempest/
+before_script:
+- virtualenv .venv
+- source .venv/bin/activate
+- pip install -U -r tempest/requirements.txt
+- cp -f tests/tempest.conf etc/
+- 'echo -e "- username: ${USER}\n  tenant_name: ${TENANT}\n  password: ${PASSWORD}" > etc/accounts.yaml'
+- wget 'https://launchpadlibrarian.net/149320341/cirros-0.3.1-i386-disk.vmdk'
+- testr init
+
+script:
+- testr run tempest.scenario.test_minimum_basic.TestMinimumBasicScenario --concurrency=1
+notifications:
+  email: false
+env:
+  global:
+  - OS_TOP_LEVEL=./tempest/
+  - OS_TEST_PATH=./tempest/tempest/test_discover
+  - secure: dGtqeKs1t4EBtKYvIHBR3lvS+HnTUjDTkSCxGoXfkMVLdMn5+YHaZIOktxP4nxfllQ5iHvoRYlRP1u4a9ZjM3+Cq+8uKxt+EW8KXDPys0qFwKxr14cwkyUGaWyvvByT7hhoUqOoao3JAy4GB2KtRqmd0pBSXkaJiWm4xboD6tkeeO5zO+xyMFaTYQWp1uPY+ITXwOwU+tkCC78sMm0oFxYKR7E887rahE6xo1AAm6pQ/AqIOt7xXJJCQijF77+DP1e0/ZYG6kHH73dsZEmstExr3rOHFhoolomRwNaPAIyP18d+S38GT/2dyqr9jzLd9qIbmA2A5RPeUZ3Ul8QMPw8XwIF5IVSq3okYub/LEYZ0YSUCpMqdpOjnRZW3elRx7UxYKED9bNRTjvsJMxBXqF5pxTK4i1iXQD+gpfyHGpculNfMR4US8XRCjLQqp82EfHSq8RW2cRdUCIn/5rrNGbQT/gGQ0UFnbMOpubC3oit3i+cmkkBoRjDNEYFEqYU7rehq+IVbVmfTZYthjasTm9Qh/OENrjE4G29P8hXabzch3SYWDZB/TGZGtdE49JQM04g7L6xdlawe/4Sq6EzkHd8YPp/7zvW0JXoDlG3Wbnu3gjYWBMStesKebb3AHoCPuYdGWvT7HlncWKetAz5oyplvc4rKApOY/69pembxAH/0=
+  - secure: rJnuSkbKW52H3pG5zCkRrfUshML2KmrI2IsY7GICmFBKeOmH1DQ803jb4e57VSzBw86tV26a0mmG6y2sxLM6coqPpA71vbMhw8fMjP/FtL44OOq1PnQhCUytKOlOU/8U8UbJnbwRvUDHWKBcG2X3FEPCHWsgeZDi0eLX7c/tg63cJK5gBSUGC4MRgY5CX0Sl9Al1OLiGPVogvieBIeDJVQIU2gkhxI6nMRCwq+K6l2D3Q5mneDIvZBNM6mPBMiNqtjFDeTq4Nxl8XYNwCZWFeDRGX0bOk/08+VniW4xCP2gE2odg4NFjETJ4BbJtWElEISw+XTKY7NMVldELXyqOA2w9+KucEhwU7LwA1npgrtav6vcLfnti0oiUIxbI9qzPLNBBcBH/fg6UXh0acqkRqCuQwKbS3UBIPwrS10vqkOsvjD72HjXAq+gkXOoGrO72PdpNbjcP3ecLaK9NNPdyu6DBcuNCNPAsoFaVNT7j73G6c+dnLGw+5Rxe9vqfKUuZIzKVcxrpF72/vn8bx7qmT5/7Qt1fdhQRs93qFfYRJemT3k8e4yr9Oqm3i573tf+XMg6V+B2L9CiWwGGOd+ih/fEAYnsdCledFKuiV5W5af2jSdyGSbKYdz9nW0W6v8GwIj6EchzLGBFZZlTTvEzQIbH/pwzGqWG9yiMpR4/Wav0=
+  - secure: qMg3Q9zrlbruwhBLGKbI9+unbCkHJV9f7DekCBhfY4e/mWgsJbnnF3eRUAIXh0I5TI6eU0pGUDfEl875izoevcjw7pyB6JitVixKxfHhkYY5EaJzg4dRYcIhpus/kf1gNv3Z7SHvcnugrQH2MvfzKJEmjQgKZ6RD1xrrJlP5dc0m0UdfuO3ZvQkqb0NPyDB9has7oA1uJTVCiy9Oj6sQZdrOLBRgfoVJ7aoXuXMITn4NRhuw+1/v70wOxymj1yLOyWv0eAgMHwLlpwdB4OSaEDEEF8gta9ZtDHOw25BeS4bVMk/dLTJAFGnqOfhVJa8lMMaAHTMaTkkrDuuxOqMp8C1UlppBl1+WWstK7X4eHkGZAnXZqaAHVONb3q+0jdFLmjFehwcvw1FnSYK7xOv0/K0epFEw0025BIcVTWRYUEQgcOqIm5t1AWB4o91Y//jTM//B29r34uh1t6O3ZuLGWBG+ckLTkjPl+5c5kEo9cD8EbK/vijCHI1zY2VRpfR+X84TJOAZddqJFO0ioXChX0aT+pP3kL9vWCXvtlaWC/5GuyK82SlX/0/KpgZjCZV/p42+YBUL6faZv2OOCNOV5bdDlCslEC8f0Fc6tnznsR+VhD0/5wXjgLORTRE4x9Rz+UtfXR1TIUBIgud3NLxRpHe0fPv5u6/1LfDiGdWLXwmo=

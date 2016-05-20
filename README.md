@@ -40,7 +40,7 @@ source .venv/bin/activate
 install tempest
 
 ```
-pip install tempest
+pip install ../tempest/
 ```
 
 # Configuration

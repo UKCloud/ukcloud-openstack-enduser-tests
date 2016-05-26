@@ -12,7 +12,7 @@ before_script:
 - cp -f tests/tempest.conf etc/
 - 'echo -e "- username: ${USER}\n  tenant_name: ${TENANT}\n  password: ${PASSWORD}"
   > etc/accounts.yaml'
-- wget 'http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-uec.tar.gz'
+- wget 'http://download.cirros-cloud.net/0.3.1/cirros-0.3.4-x86_64-uec.tar.gz'
 - testr init
 script:
 - testr run tempest.scenario.test_minimum_basic.TestMinimumBasicScenario --concurrency=1

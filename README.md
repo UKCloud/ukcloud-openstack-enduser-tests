@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/skyscape-cloud-services/skyscape-openstack-enduser-tests.svg?branch=master)](https://travis-ci.org/skyscape-cloud-services/skyscape-openstack-enduser-tests)
+[![Build Status](https://travis-ci.org/ukcloud/ukcloud-openstack-enduser-tests.svg?branch=master)](https://travis-ci.org/ukcloud/ukcloud-openstack-enduser-tests)
 
-# Skyscape OpenStack End-user tests
+# UKcloud OpenStack End-user tests
 
 
 Tempest is an OpenStack project dedicated to testing. It provides coverage in the following forms:
@@ -8,7 +8,7 @@ Tempest is an OpenStack project dedicated to testing. It provides coverage in th
   * Scenario - Allows complex user based scenarios to be setup to allow full workflows to be tested
   * Stress - Allows for complex stress testing workloads to be executed
 
-Skyscape exposes the end-user API and Scenbario tests that run to validate consitency of the platform between changes to help customers understand and contribute to the test coverage. The aim is to improve transparency of the platforms fucntionailty whilst also enabling customers to contribute tests that are pertinent to their infrastructure.
+UKcloud exposes the end-user API and Scenbario tests that run to validate consitency of the platform between changes to help customers understand and contribute to the test coverage. The aim is to improve transparency of the platforms fucntionailty whilst also enabling customers to contribute tests that are pertinent to their infrastructure.
 
 Users can contribute by either:
 
@@ -54,8 +54,8 @@ This repository can be used to build a basic a configuration. change up a direct
 
 ```
 cd ..
-git clone git@github.com:skyscape-cloud-services/skyscape-openstack-enduser-tests.git
-cd skyscape-openstack-enduser-tests
+git clone git@github.com:ukcloud/ukcloud-openstack-enduser-tests.git
+cd ukcloud-openstack-enduser-tests
 ```
 
 Tempest requires two files to test. This guide only details a basic setup testing non-admin functionality. To review the configuration in more detail read the sample tempest.conf available in http://docs.openstack.org/developer/tempest/sampleconf.html#tempest-sampleconf. A basic configuration files with some defaults and placeholders can be found in etc/tempest.conf.
@@ -68,11 +68,11 @@ Edit the tempest config etc/tempest.conf configuring the following values
 This is the authentication endpoints for both the v2.0 and v3 API's for the OpenStack platform e.g. 
 
 ```
-uri = https://services.openstack.skyscapecloud.com:5000/v2.0
+uri = https://cor00005.cni.ukcloud.com:5000/v2.0
 ```
 
 ```
-uri_v3 = https://services.openstack.skyscapecloud.com:5000/v3
+uri_v3 = https://cor00005.cni.ukcloud.com:5000/v3
 ```
 
 ### Test accounts
@@ -91,7 +91,7 @@ We are using provisioned credentials so dynamic credentials must be disabled
 use_dynamic_credentials = False
 ```
 
-You also need to define the default endpoint to use. Currently Skyscape use v2. However we enable tests for both.
+You also need to define the default endpoint to use. Currently UKcloud use v2. However we enable tests for both.
 
 ```
 auth_version = v2

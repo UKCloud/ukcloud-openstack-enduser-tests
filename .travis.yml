@@ -5,8 +5,8 @@ install:
 - sudo apt-get install -y libssl-dev libffi-dev git python-pip python-virtualenv
 - git clone http://git.openstack.org/openstack/tempest
 - sudo pip install tempest/
-- sudo pip install six
 before_script:
+- pip install -U six
 - virtualenv .venv
 - source .venv/bin/activate
 - pip install -U -r tempest/requirements.txt
